@@ -3,6 +3,8 @@ package com.generation.infostore.model;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+import org.hibernate.annotations.UpdateTimestamp;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.Column;
@@ -41,7 +43,8 @@ public class Pedido {
 	@Digits(integer = 5, fraction = 2)
 	private BigDecimal valor;
 
-	@NotNull(message = "O campo data é obrigatório!")
+
+	@UpdateTimestamp
 	private LocalDateTime data;
 
 	@ManyToOne
