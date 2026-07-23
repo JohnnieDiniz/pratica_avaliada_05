@@ -26,30 +26,30 @@ public class Pedido {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	public Long id;
 
 	@NotBlank(message = "O campo produto é obrigatório!")
 	@Size(min = 2, max = 100, message = "O campo produto deve conter entre 2 e 100 caracteres!")
 	@Column(name = "produto", nullable = false, length = 100)
-	private String produto;
+	public String produto;
 
 	@NotBlank(message = "O campo descricao é obrigatório!")
 	@Size(min = 5, max = 500, message = "O campo descricao deve conter entre 5 e 500 caracteres!")
 	@Column(name = "descricao", nullable = false, length = 500)
-	private String descricao;
+	public String descricao;
 
 	@NotNull(message = "O campo valor não pode ficar vazio! e com valores negativos")
 	@Positive
 	@Digits(integer = 5, fraction = 2)
-	private BigDecimal valor;
+	public BigDecimal valor;
 
 
 	@UpdateTimestamp
-	private LocalDateTime data;
+	public LocalDateTime data;
 
 	@ManyToOne
 	@JsonIgnoreProperties("pedido")
-	private Cliente cliente;
+	public Cliente cliente;
 
 	public Long getId() {
 		return id;

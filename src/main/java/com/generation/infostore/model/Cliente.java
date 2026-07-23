@@ -23,21 +23,21 @@ public class Cliente {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	public Long id;
 
 	@NotBlank(message = "O campo nome é obrigatório!")
 	@Size(min = 2, max = 100, message = "O campo nome deve conter entre 2 e 100 caracteres!")
 	@Column(name = "nome", nullable = false, length = 100) 
-	private String nome;
+	public String nome;
 
 	@NotBlank(message = "O e-mail não pode ser vazio.")
 	@Email(message = "Formato de e-mail inválido.")
 	@Column(nullable = false, unique = true, length = 100)
-	private String email;
+	public String email;
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "cliente", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties(value = "cliente", allowSetters = true) 
-	private List<Pedido> pedido;
+	public List<Pedido> pedido;
 
 	public Long getId() {
 		return id;
